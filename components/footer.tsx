@@ -1,6 +1,16 @@
 import Container from './container'
 import { EXAMPLE_PATH } from '../lib/constants'
 
+
+import {
+  Modal, 
+  ModalContent, 
+  ModalHeader, 
+  ModalBody, 
+  ModalFooter
+} from "@nextui-org/react";
+
+
 export default function Footer() {
   return (
     <footer className="bg-accent-1 border-t border-accent-2">
@@ -26,5 +36,6 @@ export default function Footer() {
         </div>
       </Container>
     </footer>
+    
   )
 }
