@@ -2,6 +2,11 @@
 
 This example showcases Next.js's [Incremental Static Regeneration](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration) feature using [WordPress](https://wordpress.org) as the data source.
 
+This also have added the nextjs middleware api to to fetch the graphql page content 
+main files for this is in pages/api/page/[slug].js
+and index.tsx.
+
+
 ## Demo
 
 ### [https://next-blog-wordpress.vercel.app](https://next-blog-wordpress.vercel.app)
