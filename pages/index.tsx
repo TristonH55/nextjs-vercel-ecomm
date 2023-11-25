@@ -1,4 +1,4 @@
-import Head from 'next/head'
+// import Head from 'next/head'
 // import { GetStaticProps } from 'next'
 // import Container from '../components/container'
 // import MoreStories from '../components/more-stories'
@@ -69,7 +69,8 @@ import useSWR from 'swr'
 
 //working code
 
-const fetcher = (...args) => fetch(...args).then(res => res.json())
+const fetcher = (...args: Parameters<typeof fetch>) =>
+  fetch(...args).then((res) => res.json());
 export default function Home() {
   const { data, error, isLoading } = useSWR('/api/page/home', fetcher)
  
@@ -77,6 +78,7 @@ export default function Home() {
   if (isLoading) return <div>loading...</div>
 
   console.log(data);
+  
 
   return (
     <div>

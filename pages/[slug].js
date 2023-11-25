@@ -25,6 +25,7 @@ export default function Page() {
     <div>
       <Head>
         <title>Create App</title>
+        <link rel="stylesheet" href={'http://localhost/wordpress-scooter-site/wp-includes/css/dist/block-library/style.min.css'}/>
       </Head>
       <main>
         <h1>{data.page.title}</h1>
