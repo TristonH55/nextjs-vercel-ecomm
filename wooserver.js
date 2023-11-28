@@ -40,7 +40,7 @@
 
 //code 2
 
-// woocommerce.js SWR SETUP
+// woocommerce.js SWR SETUP working woo api connection
 import useSWR from 'swr';
 import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api";
 

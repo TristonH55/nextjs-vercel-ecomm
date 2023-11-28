@@ -94,6 +94,8 @@
 // Tesing a GrapgQl GET
 import { useQuery, gql } from '@apollo/client';
 import client from 'apollo-client.js'; // adjust the path
+import { useRouter } from 'next/router';
+
 
 const GET_PRODUCTS = gql`
   {
@@ -117,7 +119,6 @@ const GET_PRODUCTS = gql`
           price
           regularPrice
           salePrice
-          
         }
       }
     }
@@ -125,6 +126,7 @@ const GET_PRODUCTS = gql`
 `;
 
 const Shop = () => {
+  const router = useRouter();
   const { loading, error, data } = useQuery(GET_PRODUCTS, { client });
 
   if (loading) return <div>Loading...</div>;
@@ -132,12 +134,18 @@ const Shop = () => {
     console.error('GraphQL Error:', error);
     return <div>Error loading products</div>;
   }
-  console.log('Product Data:', data);
 
   return (
     <div className="grid grid-cols-5 gap-4">
       {data.products.nodes.map((product) => (
-        <div key={product.id} className="card w-96 bg-base-100 shadow-xl">
+        <div
+          key={product.id}
+          className="card w-96 bg-base-100 shadow-xl"
+          onClick={() => {
+            console.log('Product Slug:', product.slug);
+            router.push({ pathname: '/products/[slug]', query: { slug: product.slug } });
+          }}
+        >
           {product.image && (
             <figure>
               <img src={product.image.sourceUrl} alt={product.name} className="card-img-top" />
